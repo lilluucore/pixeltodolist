@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新規登録 - Register</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=block" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="container auth-container">
+  <header class="header">
+    <h1 class="title">
+      <span class="jp">新規登録</span>
+      <span class="en">Register / Регистрация</span>
+    </h1>
+  </header>
+
+  <div class="auth-form">
+    <form th:action="@{/register}" method="post">
+      <div class="form-group">
+        <label class="form-label">
+          <span class="jp">ユーザー名</span>
+          <span class="en">Username / Имя пользователя</span>
+        </label>
+        <input type="text" name="username" class="pixel-input" required autofocus>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">
+          <span class="jp">パスワード</span>
+          <span class="en">Password / Пароль</span>
+        </label>
+        <input type="password" name="password" class="pixel-input" required>
+      </div>
+
+      <button type="submit" class="pixel-btn full-width">
+        <span class="jp">登録</span>
+        <span class="en">Register / Зарегистрироваться</span>
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      <a th:href="@{/login}" class="pixel-link">
+        <span class="jp">ログイン</span>
+        <span class="en">Login / Уже есть аккаунт?</span>
+      </a>
+    </div>
+
+    <div th:if="${error}" class="message error" th:text="${error}"></div>
+  </div>
+</div>
+</body>
+</html>
